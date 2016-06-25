@@ -2,12 +2,13 @@
 * @Author: CJ Ting
 * @Date:   2016-06-25 11:33:45
 * @Last Modified by:   CJ Ting
-* @Last Modified time: 2016-06-25 11:47:45
+* @Last Modified time: 2016-06-25 17:20:59
 */
 
 var path = require("path")
 var webpack = require("webpack")
 var devConfig = require("./webpack.config.js")
+var WebpackMd5Hash = require("webpack-md5-hash")
 var fs = require("fs")
 
 module.exports = {
@@ -24,6 +25,7 @@ module.exports = {
   },
   module: devConfig.module,
   plugins: [
+    new WebpackMd5Hash(),
     new webpack.optimize.CommonsChunkPlugin({
       name: "vendors",
       minChunks: Infinity,
