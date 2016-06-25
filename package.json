@@ -4,7 +4,8 @@
   "description": "demonstrate long term caching using webpack",
   "main": "app.js",
   "scripts": {
-    "dev": "webpack-dev-server --color --progress --content-base dist"
+    "dev": "webpack-dev-server --color --progress --content-base dev",
+    "build": "webpack --config webpack.config.production.js --color --progress"
   },
   "repository": {
     "type": "git",

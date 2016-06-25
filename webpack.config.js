@@ -1,11 +1,12 @@
 /*
 * @Author: cj
 * @Date:   2016-06-25 10:58:03
-* @Last Modified by:   cj
-* @Last Modified time: 2016-06-25 11:00:01
+* @Last Modified by:   CJ Ting
+* @Last Modified time: 2016-06-25 11:41:55
 */
 
 var path = require("path")
+var fs = require("fs")
 
 module.exports = {
   entry: {
@@ -29,4 +30,14 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    function() {
+      copyFile("html/index.dev.html", "dev/index.html")
+    },
+  ],
+}
+
+function copyFile(from, to) {
+  var content = fs.readFileSync(from, "utf8")
+  fs.writeFileSync(to, content)
 }
